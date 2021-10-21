@@ -14,7 +14,8 @@ on:
   watch:
     types: started
   repository_dispatch:
-
+env:
+  SOURCE_REPOS: https://gitee.com/asymt/port-forward-go.git
 jobs:
 
   merge:
@@ -35,7 +36,7 @@ jobs:
         git config --global user.email "jimoyuanfeng@gmail.com"
         git config --global user.name "喻名堂"
     - name: Load upstream commits
-      run: git pull https://gitee.com/asymt/port-forward-go.git --log --no-commit
+      run: git pull $SOURCE_REPOS --log --no-commit
 
     - name: Apply commit changes
       run: |
